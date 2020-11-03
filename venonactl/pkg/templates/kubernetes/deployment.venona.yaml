@@ -22,7 +22,13 @@ spec:
     metadata:
       labels:
         app: {{ .AppName }}
-        version: {{ .Version }}
+        version: {{ .Version }}  
+      {{ if ne (len .Annotations) 0 }}
+      annotations: 
+        {{- range $key, $value := .Annotations }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
+      {{- end }}  
     spec:
       volumes:
         - name: runnerconf

@@ -61,6 +61,8 @@ type (
 		UseNamespaceWithRole bool
 
 		AdditionalEnvVars map[string]string
+
+		Annotations map[string]string
 	}
 
 	KubernetesAPI struct {
